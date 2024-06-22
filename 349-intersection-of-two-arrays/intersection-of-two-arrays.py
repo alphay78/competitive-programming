@@ -1,10 +1,19 @@
-class Solution:
-    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        New_list=[]
-        for i in nums1:
-            for j in nums2:
-                if i == j :
-                    New_list.append(i)
-                else: 
-                    continue
-        return set(New_list)
+class Solution(object):
+    def intersection(self, nums1, nums2):
+       dict={}
+       New_list=[]
+       for i in nums1:
+            if i in dict:
+                continue
+            else: 
+                dict[i]=1
+     
+       for j in nums2:
+            if j in dict:
+                New_list.append(j)
+            else:
+                continue
+        
+       return set(New_list)
+
+        
