@@ -1,17 +1,11 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
         def get_next(number):
-            total_sum = 0
-            while number > 0:
-                digit = number % 10
-                total_sum += digit ** 2
-                number //= 10
-            return total_sum
+            return sum(int(digit) ** 2 for digit in str(number))
 
         seen = set()
         while n != 1 and n not in seen:
             seen.add(n)
             n = get_next(n)
-
-        return n == 1
         
+        return n == 1
