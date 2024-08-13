@@ -1,9 +1,13 @@
+# from typing import List
+# from collections import Counter
+
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-         sorted_target = sorted(target)
-         sorted_arr = sorted(arr)
-    
-         return sorted_target == sorted_arr
+        dict_target = Counter(target)
+        dict_arr = Counter(arr)
+
+        return dict_target == dict_arr
+
 
 
         
