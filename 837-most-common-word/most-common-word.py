@@ -1,28 +1,27 @@
 import re
-import string
 
-class Solution:
-    def mostCommonWord(self, paragraph: str, banned: list) -> str:
-        # Convert paragraph to lowercase and remove punctuation
-        paragraph = paragraph.lower()
-        paragraph = re.sub(r'[^\w\s]', ' ', paragraph)  # Replace punctuation with spaces
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        # Step 1: Convert paragraph to lowercase and remove punctuation
+        lowerCase_paragraph = paragraph.lower()
+        clean_paragraph = re.sub(r'[^\w\s]', ' ', lowerCase_paragraph)
         
-        # Split paragraph into words
-        words = paragraph.split()
+        # Step 2: Split paragraph into words
+        words = clean_paragraph.split()
         
-        # Initialize a dictionary to store word frequencies
-        word_dict = {}
+        # Step 3: Create a dictionary to count word frequencies
+        word_count = {}
         
-        # Count frequencies of each word
+        # Step 4: Iterate over words and update counts, skipping banned words
+        banned_set = set(banned)  # Convert banned list to a set for fast lookup
         for word in words:
-            if word in banned:
-                continue
-            if word in word_dict:
-                word_dict[word] += 1
-            else:
-                word_dict[word] = 1
+            if word not in banned_set:
+                if word in word_count:
+                    word_count[word] += 1
+                else:
+                    word_count[word] = 1
         
-        # Find the most common word
-        max_word = max(word_dict, key=word_dict.get)
+        # Step 5: Find the word with the maximum frequency
+        most_common_word = max(word_count, key=word_count.get)
         
-        return max_word
+        return most_common_word
