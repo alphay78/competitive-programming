@@ -1,8 +1,6 @@
-class Solution(object):
-    def intersection(self, nums1, nums2):
-        mydict = {}
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1 = set(nums1)
+        nums2 = set(nums2)
 
-        for num in nums1:
-            if (num in nums2) and (num not in mydict.keys()):
-                mydict[num] = num
-        return list(set(mydict.keys()))
+        return list(nums1 & nums2)
