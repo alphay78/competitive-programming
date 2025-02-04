@@ -4,11 +4,8 @@ class Solution:
         my_list =[]
 
         for i,j in my_dict.items():
-            if j == 1:
-                continue
-            else:
-                my_list.append(i)
-
+            if j > 1:
+                 my_list.append(i)
         return my_list
 
 
