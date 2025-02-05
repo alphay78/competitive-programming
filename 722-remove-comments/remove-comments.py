@@ -13,7 +13,7 @@ class Solution:
                 elif line[i:i+2] == "*/" and in_comment:
                     in_comment = False
                     i += 1
-                elif not in_comment and line[i:i+2] == '//':
+                elif line[i:i+2] == '//' and not in_comment:
                     break
                 elif not in_comment:
                     newline.append(line[i])
