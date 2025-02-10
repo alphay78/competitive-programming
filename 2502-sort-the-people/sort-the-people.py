@@ -1,8 +1,23 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        n = len(names)
-        sorted_index = sorted(list(range(n)), key= lambda x:heights[x],reverse=True)
-        ans = []
-        for i in sorted_index:
-            ans.append(names[i])
-        return ans
+        length = len(heights)
+
+        for i in range(length):
+            for j in range(length-i-1):
+                if heights[j] < heights[j+1]:
+                    heights[j] ,heights[j+1] = heights[j+1] ,heights[j] 
+                    names[j] ,names[j+1] = names[j+1] ,names[j] 
+        return names
+                
+
+
+
+      
+
+       
+
+
+
+        
+
+    
