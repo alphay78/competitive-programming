@@ -1,19 +1,28 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
-        skill=sorted(skill)
+        skill.sort()
         l=0
         r=len(skill)-1
-        s=skill[l]+skill[r]
-        res=0
-        for i in range (len(skill)//2):
-            if skill[l]+skill[r]!=s:
-                return -1
+        pre = skill[l] + skill[r]
+        res = 0
+        while l<r:
+            s = skill[l] +skill[r]
+            if pre == s:
+                m = skill[l]*skill[r]
+                res+=m
+                l+=1
+                r-=1
             else:
-                res+=skill[l]*skill[r]
-            l+=1
-            r-=1
+                return -1
+                
         return res
-                    
+
+
+
+
+            
+
+  
 
                  
 
