@@ -5,8 +5,8 @@
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        small_head = small = ListNode(0)  # Dummy node for small values
-        large_head = large = ListNode(0)  # Dummy node for large values
+        small_head = small = ListNode(0) 
+        large_head = large = ListNode(0)  
 
         while head:
             if head.val < x:
@@ -15,10 +15,10 @@ class Solution:
             else:
                 large.next = head
                 large = large.next
-            head = head.next  # Move to next node
+            head = head.next 
         
-        large.next = None  # End large list
-        small.next = large_head.next  # Merge lists
+        large.next = None  
+        small.next = large_head.next  
 
-        return small_head.next  # New head of partitioned list
+        return small_head.next
         
