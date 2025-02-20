@@ -1,4 +1,3 @@
-from typing import Optional
 
 class ListNode:
     def __init__(self, x):
@@ -10,10 +9,8 @@ class Solution:
         dummy = ListNode(0)
         dummy.next = head
         first = second = dummy
-
-        for _ in range(n + 1):
+        for i in range(n + 1):
             first = first.next
-
         while first:
             first = first.next
             second = second.next
