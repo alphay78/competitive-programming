@@ -7,15 +7,15 @@ class ListNode:
 
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        dummy = ListNode(0)  # Create a dummy node to handle edge cases
+        dummy = ListNode(0) 
         dummy.next = head
         prev, current = dummy, head
 
         while current:
             if current.val == val:
-                prev.next = current.next  # Skip the node with the target value
+                prev.next = current.next  
             else:
                 prev = current
             current = current.next
 
-        return dummy.next  # Return the new head
+        return dummy.next 
