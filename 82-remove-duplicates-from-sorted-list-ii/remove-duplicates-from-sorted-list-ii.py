@@ -14,14 +14,14 @@ class Solution:
         curr = head  
         
         while curr and curr.next:
-            if curr.val == curr.next.val:  # Found duplicate
+            if curr.val == curr.next.val:
                 duplicate_val = curr.val
-                # Skip all nodes with this value
+                
                 while curr and curr.val == duplicate_val:
                     curr = curr.next
-                prev.next = curr  # Link to the next unique node
+                prev.next = curr 
             else:
-                prev = curr  # Move prev forward if no duplicate
-                curr = curr.next  # Move curr forward
+                prev = curr
+                curr = curr.next  
 
         return dummy.next  # Return the modified list
