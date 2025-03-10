@@ -1,13 +1,17 @@
 class Solution(object):
     def isValid(self, s):
         stack = []
-        bracket_map = {')': '(', '}': '{', ']': '['}
+        my_dict = {'[':']','{':'}','(':')'}
 
-        for char in s:
-            if char in bracket_map:
-                top_element = stack.pop() if stack else '#'
-                if bracket_map[char] != top_element:
-                    return False
+        for i in range(len(s)):
+            if s[i] in my_dict.keys():
+                stack.append(s[i])
             else:
-                stack.append(char)
+                if not stack:
+                    return False
+                a = stack.pop()
+                if s[i] !=  my_dict[a]:
+                    return False
         return not stack
+
+
