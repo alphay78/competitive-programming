@@ -1,17 +1,27 @@
 class Solution(object):
     def isValid(self, s):
         stack = []
-        my_dict = {'[':']','{':'}','(':')'}
+        my_dict = {'(':')' , '{':'}', '[':']'}
 
-        for i in range(len(s)):
-            if s[i] in my_dict.keys():
-                stack.append(s[i])
+        for i in s:
+            if i in my_dict:
+                stack.append(i)
             else:
                 if not stack:
                     return False
-                a = stack.pop()
-                if s[i] !=  my_dict[a]:
-                    return False
+                else:
+                    top = stack.pop()
+                    if my_dict[top] != i:
+                        return False
         return not stack
+
+
+
+                        
+
+
+     
+
+        
 
 
