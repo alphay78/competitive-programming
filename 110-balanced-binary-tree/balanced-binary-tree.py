@@ -8,20 +8,20 @@ class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def height(node):
             if not node:
-                return 0  # Base case: empty subtree
+                return 0  
 
             left = height(node.left)
             if left == -1:
-                return -1  # Left subtree not balanced
+                return -1  
 
             right = height(node.right)
             if right == -1:
-                return -1  # Right subtree not balanced
+                return -1 
 
             if abs(left - right) > 1:
-                return -1  # Current node not balanced
+                return -1  
 
-            return 1 + max(left, right)  # Height of current node
+            return 1 + max(left, right)  
 
         return height(root) != -1
         
