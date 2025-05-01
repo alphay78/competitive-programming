@@ -15,9 +15,10 @@ class Solution:
             result.append(node.val)
             dfs(node.left)
             dfs(node.right)
-
+        
         dfs(root)
-        return result 
+        return result
+        
 
 
         
