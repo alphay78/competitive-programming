@@ -7,6 +7,7 @@
 
 class Solution:
     def maxAncestorDiff(self, root: TreeNode) -> int:
+        
         def dfs(node: TreeNode, cur_min: int, cur_max: int) -> int:
             if not node:
                 return cur_max - cur_min
