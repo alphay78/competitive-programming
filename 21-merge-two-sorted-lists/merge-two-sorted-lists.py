@@ -29,3 +29,20 @@ class Solution:
         return dummy.next
 
 # Helper function to convert list to ListNode
+def create_linked_list(arr):
+    if not arr:
+        return None
+    head = ListNode(arr[0])
+    current = head
+    for val in arr[1:]:
+        current.next = ListNode(val)
+        current = current.next
+    return head
+
+# Helper function to convert ListNode to list
+def linked_list_to_list(node):
+    result = []
+    while node:
+        result.append(node.val)
+        node = node.next
+    return result
