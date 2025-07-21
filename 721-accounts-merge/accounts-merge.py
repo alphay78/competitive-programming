@@ -3,13 +3,11 @@ class Solution:
         parent = {}  # Union-Find parent map
         email_to_name = {}  # Map each email to its owner's name
 
-        # Union-Find: find with path compression
         def find(x):
             if parent[x] != x:
                 parent[x] = find(parent[x])
             return parent[x]
 
-        # Union operation
         def union(x, y):
             parent[find(x)] = find(y)
 
